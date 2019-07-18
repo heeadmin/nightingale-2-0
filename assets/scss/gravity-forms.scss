@@ -1,0 +1,12 @@
+.gform_body {
+  ul {
+    list-style: none;
+  }
+
+  input[type="submit"] {
+    @extend .nhsuk-button;
+  }
+}
+.gsurveytable {
+
+}
