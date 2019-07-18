@@ -96,32 +96,17 @@ if ( ! function_exists( 'nightingale_2_0_setup' ) ) :
             'widgets'     => array(
                 // Place three core-defined widgets in the sidebar area.
                 'sidebar-1' => array(
-                    'subpages-widget',
+                    'subpages-widget-1',
                 ),
             ),
-            'posts'       => array(
-                'home',
-                'blog',
-            ),
-            // Default to a static front page and assign the front and posts pages.
-            'options'     => array(
-                'show_on_front'  => 'page',
-                'page_on_front'  => '{{home}}',
-                'page_for_posts' => '{{blog}}',
-            ),
-            'theme_mods'  => array(
-                'panel_1' => '{{homepage-section}}',
-                'panel_2' => '{{blog}}',
-            ),
 
-            // Set up nav menus for each of the two areas registered in the theme.
+           // Set up nav menus for each of the two areas registered in the theme.
             'nav_menus'   => array(
                 // Assign a menu to the "main-menu" location.
                 'main-menu'    => array(
                     'name'  => __( 'Main Menu', 'nightingale_2_0' ),
                     'items' => array(
                         'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
-                        'page_blog',
                     ),
                 ),
                 // Assign a menu to the "footer-menu" location.
@@ -129,7 +114,6 @@ if ( ! function_exists( 'nightingale_2_0_setup' ) ) :
                     'name'  => __( 'Footer Links', 'nightingale_2_0' ),
                     'items' => array(
                         'link_home',
-                        'page-blog',
                     ),
                 ),
             ),
@@ -298,8 +282,9 @@ require get_template_directory() . '/inc/breadcrumbs.php';
 /**
  * Gravity Forms style over-ride.
  */
+if (class_exists( 'GFForms')) {
 require get_template_directory() . '/inc/gravity-forms.php';
-
+}
 /**
  * Load Jetpack compatibility file.
  */
